@@ -1,0 +1,110 @@
+2026-02-28 11:14:30 [ERROR] : Login test failed: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveTitle[2m([22m[32mexpected[39m[2m)[22m failed
+
+Expected pattern: [32m/My Accoun/[39m
+Received string:  [31m"Account Login"[39m
+Timeout: 5000ms
+
+Call log:
+[2m  - Expect "toHaveTitle" with timeout 5000ms[22m
+[2m    8 × unexpected value "Account Login"[22m
+
+2026-02-28 13:13:02 [ERROR] : Login test failed: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveTitle[2m([22m[32mexpected[39m[2m)[22m failed
+
+Expected pattern: [32m/My Accoun/[39m
+Received string:  [31m"Account Login"[39m
+Timeout: 5000ms
+
+Call log:
+[2m  - Expect "toHaveTitle" with timeout 5000ms[22m
+[2m    8 × unexpected value "Account Login"[22m
+
+2026-03-17 15:01:23 [ERROR] : Login test failed: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveTitle[2m([22m[32mexpected[39m[2m)[22m failed
+
+Expected pattern: [32m/My Accoun/[39m
+Received string:  [31m"Account Login"[39m
+Timeout: 5000ms
+
+Call log:
+[2m  - Expect "toHaveTitle" with timeout 5000ms[22m
+[2m    9 × unexpected value "Account Login"[22m
+
+2026-03-27 10:15:43 [ERROR] : Login test failed: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveTitle[2m([22m[32mexpected[39m[2m)[22m failed
+
+Expected pattern: [32m/My Accoun/[39m
+Received string:  [31m"Account Login"[39m
+Timeout: 5000ms
+
+Call log:
+[2m  - Expect "toHaveTitle" with timeout 5000ms[22m
+[2m    9 × unexpected value "Account Login"[22m
+
+2026-03-27 10:15:53 [ERROR] : Login test failed: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveTitle[2m([22m[32mexpected[39m[2m)[22m failed
+
+Expected pattern: [32m/My Accoun/[39m
+Received string:  [31m"Account Login"[39m
+Timeout: 5000ms
+
+Call log:
+[2m  - Expect "toHaveTitle" with timeout 5000ms[22m
+[2m    9 × unexpected value "Account Login"[22m
+
+2026-03-27 10:46:34 [ERROR] : Login test failed: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveTitle[2m([22m[32mexpected[39m[2m)[22m failed
+
+Expected pattern: [32m/My Accoun/[39m
+Received string:  [31m"Account Login"[39m
+Timeout: 5000ms
+
+Call log:
+[2m  - Expect "toHaveTitle" with timeout 5000ms[22m
+[2m    9 × unexpected value "Account Login"[22m
+
+2026-03-27 10:46:44 [ERROR] : Login test failed: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveTitle[2m([22m[32mexpected[39m[2m)[22m failed
+
+Expected pattern: [32m/My Accoun/[39m
+Received string:  [31m"Account Login"[39m
+Timeout: 5000ms
+
+Call log:
+[2m  - Expect "toHaveTitle" with timeout 5000ms[22m
+[2m    9 × unexpected value "Account Login"[22m
+
+2026-03-27 10:59:31 [ERROR] : Login test failed: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveTitle[2m([22m[32mexpected[39m[2m)[22m failed
+
+Expected pattern: [32m/My Accoun/[39m
+Received string:  [31m"Account Login"[39m
+Timeout: 5000ms
+
+Call log:
+[2m  - Expect "toHaveTitle" with timeout 5000ms[22m
+[2m    9 × unexpected value "Account Login"[22m
+
+2026-03-27 10:59:41 [ERROR] : Login test failed: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveTitle[2m([22m[32mexpected[39m[2m)[22m failed
+
+Expected pattern: [32m/My Accoun/[39m
+Received string:  [31m"Account Login"[39m
+Timeout: 5000ms
+
+Call log:
+[2m  - Expect "toHaveTitle" with timeout 5000ms[22m
+[2m    9 × unexpected value "Account Login"[22m
+
+2026-03-30 11:59:33 [ERROR] : Login test failed: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveTitle[2m([22m[32mexpected[39m[2m)[22m failed
+
+Expected pattern: [32m/My Accoun/[39m
+Received string:  [31m"Account Login"[39m
+Timeout: 5000ms
+
+Call log:
+[2m  - Expect "toHaveTitle" with timeout 5000ms[22m
+[2m    8 × unexpected value "Account Login"[22m
+
+2026-03-30 11:59:45 [ERROR] : Login test failed: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveTitle[2m([22m[32mexpected[39m[2m)[22m failed
+
+Expected pattern: [32m/My Accoun/[39m
+Received string:  [31m"Account Login"[39m
+Timeout: 5000ms
+
+Call log:
+[2m  - Expect "toHaveTitle" with timeout 5000ms[22m
+[2m    9 × unexpected value "Account Login"[22m
+

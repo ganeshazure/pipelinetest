@@ -1,0 +1,481 @@
+// ============================================================
+// browser.spec.js
+// Complete guide: BrowserType → Browser → BrowserContext → Page
+// Everything discussed in one file
+// ============================================================
+
+const { chromium } = require('playwright');
+
+// ============================================================
+// SECTION 1 — WHAT IS chromium?
+// chromium is NOT a class.
+// chromium is a PRE-BUILT INSTANCE of BrowserType class.
+// Playwright internally does: new BrowserType('chromium')
+// and exports it. You just receive the finished object.
+//
+// class BrowserType {
+//   constructor(name) {
+//     this.name = name;           // 'chromium' / 'firefox' / 'webkit'
+//   }
+//   launch() {
+//     return new Browser(this);   // creates Browser, passes itself in
+//   }
+// }
+//
+// Playwright internally:
+//   const chromium = new BrowserType('chromium')  ← already done
+//   const firefox  = new BrowserType('firefox')   ← already done
+//   const webkit   = new BrowserType('webkit')    ← already done
+//   module.exports = { chromium, firefox, webkit }
+//
+// You just destructure:
+//   const { chromium } = require('playwright')    ← you receive it here
+// ============================================================
+
+// ============================================================
+// SECTION 2 — WHAT IS Browser?
+// Browser is a CLASS (blueprint).
+// const browser is an INSTANCE (real object in memory).
+//
+// class Browser {
+//   constructor(browserType) {
+//     this.browserType = browserType   ← stores who created it (back-ref)
+//     this._contexts   = []            ← empty list of contexts
+//     this._connected  = true          ← am I alive?
+//   }
+//   newContext() {
+//     const ctx = new BrowserContext(this)  ← creates object, passes itself
+//     this._contexts.push(ctx)              ← tracks it internally
+//     return ctx                            ← hands it back to you
+//   }
+//   contexts()    { return this._contexts }
+//   isConnected() { return this._connected }
+//   version()     { return '117.0.xxx' }
+//   close()       { this._connected = false }
+// }
+//
+// chromium.launch() internally does: new Browser(chromium)
+// and returns it via Promise.
+// await unwraps that Promise → you get the real Browser object.
+// ============================================================
+
+// ============================================================
+// SECTION 3 — WHAT IS BrowserContext?
+// BrowserContext is a CLASS.
+// const context is an INSTANCE — an isolated session.
+// Think of it like an incognito window — own cookies, own auth.
+//
+// class BrowserContext {
+//   constructor(browser) {
+//     this.browser = browser   ← back-reference to Browser
+//     this._pages  = []        ← empty list of pages
+//   }
+//   newPage() {
+//     const p = new Page(this) ← creates Page, passes itself
+//     this._pages.push(p)      ← tracks it
+//     return p                 ← hands it back
+//   }
+//   browser()  { return this.browser }
+//   pages()    { return this._pages }
+//   cookies()  { ... }
+//   route()    { ... }
+//   close()    { ... }
+// }
+//
+// browser.newContext() internally does: new BrowserContext(browser)
+// ============================================================
+
+// ============================================================
+// SECTION 4 — WHAT IS Page?
+// Page is a CLASS — equivalent of Selenium WebDriver.
+// const page is an INSTANCE — one browser tab.
+// This is where real work happens: goto, click, fill etc.
+//
+// class Page {
+//   constructor(context) {
+//     this.context = context   ← back-reference to BrowserContext
+//   }
+//   context()    { return this.context }
+//   goto(url)    { /* navigates Chrome to URL */ }
+//   click(sel)   { /* clicks element */ }
+//   fill(sel, v) { /* types into input */ }
+//   locator(sel) { return new Locator(this, sel) }
+//   screenshot() { ... }
+//   close()      { ... }
+// }
+//
+// context.newPage() internally does: new Page(context)
+// ============================================================
+
+
+// ============================================================
+// TEST 1 — BASIC CHAIN
+// BrowserType → Browser → BrowserContext → Page
+// Every variable name is your choice — browser/myown/b all work
+// ============================================================
+
+test('basic chain: launch → context → page → goto', async () => {
+
+  // STEP 1: chromium.launch()
+  // chromium (BrowserType instance) calls launch()
+  // launch() does: new Browser(this) internally
+  // await unwraps the Promise → we get real Browser object
+  const browser = await chromium.launch({ headless: true });
+
+  // PROOF: browser is an instance of Browser class
+  console.log(browser.isConnected());   // true
+  console.log(browser.version());       // '117.0.xxx'
+  console.log(browser.contexts());      // [] empty at start
+
+  // STEP 2: browser.newContext()
+  // Browser.newContext() does: new BrowserContext(this) internally
+  // also pushes it to browser._contexts[]
+  // await unwraps Promise → we get real BrowserContext object
+  const context = await browser.newContext();
+
+  // PROOF: context stores back-reference to browser
+  console.log(context.browser() === browser);   // true ✅
+  console.log(browser.contexts().length);       // 1 (tracked internally)
+
+  // STEP 3: context.newPage()
+  // BrowserContext.newPage() does: new Page(this) internally
+  // await unwraps Promise → we get real Page object
+  const page = await context.newPage();
+
+  // PROOF: page stores back-reference to context
+  console.log(page.context() === context);                // true ✅
+  console.log(page.context().browser() === browser);      // true ✅
+
+  // STEP 4: page.goto() — REAL WORK finally happens here
+  await page.goto('https://example.com');
+  console.log(await page.title());   // 'Example Domain'
+
+  // CLEANUP — close in reverse order
+  await page.close();
+  await context.close();
+  await browser.close();
+});
+
+
+// ============================================================
+// TEST 2 — VARIABLE NAME DOES NOT MATTER
+// const browser / const myown / const b → all identical
+// ============================================================
+
+test('variable name does not matter', async () => {
+
+  // all three lines do EXACTLY the same thing
+  const browser = await chromium.launch({ headless: true });
+  // const myown  = await chromium.launch({ headless: true });
+  // const b      = await chromium.launch({ headless: true });
+
+  const context = await browser.newContext();
+  // const myCtx  = await browser.newContext();   ← same thing
+  // const c      = await browser.newContext();   ← same thing
+
+  const page = await context.newPage();
+  // const myPage = await context.newPage();      ← same thing
+  // const p      = await context.newPage();      ← same thing
+
+  await page.goto('https://example.com');
+  console.log(await page.title());   // works regardless of name
+
+  await browser.close();
+});
+
+
+// ============================================================
+// TEST 3 — WHY await IS NEEDED
+// newContext() talks to Chrome process — takes time
+// it returns a Promise, not the value directly
+// await pauses the line and waits for the real object
+// ============================================================
+
+test('why await is needed — Promise vs real object', async () => {
+
+  const browser = await chromium.launch({ headless: true });
+
+  // WITHOUT await — you get the Promise wrapper, NOT the object
+  const withoutAwait = browser.newContext();
+  console.log(withoutAwait);           // Promise { <pending> }
+  // withoutAwait.newPage()            // 💥 ERROR: not a function
+
+  // WITH await — Promise is unwrapped, you get real BrowserContext
+  const withAwait = await browser.newContext();
+  console.log(withAwait);             // BrowserContext { ... }
+  const page = await withAwait.newPage();  // ✅ works perfectly
+
+  await browser.close();
+});
+
+
+// ============================================================
+// TEST 4 — BACK-REFERENCES
+// Every object stores who created it
+// You can walk UP the chain from page → context → browser
+// ============================================================
+
+test('back-references: walk up the chain', async () => {
+
+  const browser  = await chromium.launch({ headless: true });
+  const context  = await browser.newContext();
+  const page     = await context.newPage();
+
+  // page → context (one hop up)
+  const myContext = page.context();
+  console.log(myContext === context);      // true ✅
+
+  // page → context → browser (two hops up)
+  const myBrowser = page.context().browser();
+  console.log(myBrowser === browser);      // true ✅
+
+  // context → browser (one hop up)
+  console.log(context.browser() === browser);   // true ✅
+
+  // full chain from page:
+  // page.context                           → BrowserContext
+  // page.context().browser()               → Browser
+  // page.context().browser().browserType   → chromium (BrowserType)
+
+  await browser.close();
+});
+
+
+// ============================================================
+// TEST 5 — newContext() does TWO things internally
+// 1. creates BrowserContext object
+// 2. stores it in browser._contexts[] (tracking)
+// 3. returns it to you
+// ============================================================
+
+test('browser tracks all its contexts internally', async () => {
+
+  const browser = await chromium.launch({ headless: true });
+
+  console.log(browser.contexts().length);  // 0 — empty at start
+
+  const context1 = await browser.newContext();
+  console.log(browser.contexts().length);  // 1 — tracked!
+
+  const context2 = await browser.newContext();
+  console.log(browser.contexts().length);  // 2 — tracked!
+
+  const context3 = await browser.newContext();
+  console.log(browser.contexts().length);  // 3 — tracked!
+
+  // browser knows all contexts it created:
+  console.log(browser.contexts()[0] === context1);  // true ✅
+  console.log(browser.contexts()[1] === context2);  // true ✅
+  console.log(browser.contexts()[2] === context3);  // true ✅
+
+  await browser.close();
+});
+
+
+// ============================================================
+// TEST 6 — WHY 3 CLASSES INSTEAD OF ONE (like Selenium)
+// REASON 1: Multiple isolated users in ONE browser process
+// Selenium needs 2 ChromeDriver instances (2 Chrome processes)
+// Playwright needs 1 Browser + 2 BrowserContexts (1 Chrome process)
+// ============================================================
+
+test('two users logged in simultaneously — one browser process', async () => {
+
+  const browser = await chromium.launch({ headless: true });
+
+  // userA gets their own ISOLATED session
+  const contextA = await browser.newContext();
+  const pageA    = await contextA.newPage();
+  await pageA.goto('https://example.com');
+  // pageA has its own cookies, localStorage, auth state
+
+  // userB gets their own ISOLATED session — SAME browser process
+  const contextB = await browser.newContext();
+  const pageB    = await contextB.newPage();
+  await pageB.goto('https://example.com');
+  // pageB has its own cookies — COMPLETELY separate from contextA
+
+  // contextA and contextB NEVER share cookies
+  const cookiesA = await contextA.cookies();
+  const cookiesB = await contextB.cookies();
+  console.log(cookiesA);   // userA cookies only
+  console.log(cookiesB);   // userB cookies only
+
+  // ONE Chrome process, TWO isolated sessions
+  // Selenium would need TWO full Chrome processes for this — much heavier
+
+  await browser.close();
+});
+
+
+// ============================================================
+// TEST 7 — WHY 3 CLASSES INSTEAD OF ONE (like Selenium)
+// REASON 2: Multiple tabs, no switching needed
+// Selenium: driver.switchTo().window(handle) — error prone
+// Playwright: each tab is its own Page object — clean
+// ============================================================
+
+test('multiple tabs — no switching needed', async () => {
+
+  const browser  = await chromium.launch({ headless: true });
+  const context  = await browser.newContext();
+
+  // each tab is its own independent object
+  const page1 = await context.newPage();
+  const page2 = await context.newPage();
+  const page3 = await context.newPage();
+
+  // work on each tab directly — no switching
+  await page1.goto('https://example.com');
+  await page2.goto('https://example.com');
+  await page3.goto('https://example.com');
+
+  const title1 = await page1.title();
+  const title2 = await page2.title();
+  const title3 = await page3.title();
+
+  console.log(title1, title2, title3);
+
+  // all three share the SAME session (same context = same cookies)
+  // but each is its own independent tab object
+
+  await browser.close();
+});
+
+
+// ============================================================
+// TEST 8 — WHY 3 CLASSES INSTEAD OF ONE (like Selenium)
+// REASON 3: Save and reuse login state
+// Login once → save to file → every test starts already logged in
+// This is ONLY possible because BrowserContext owns the session
+// ============================================================
+
+test('save login session and reuse — no re-login needed', async () => {
+
+  const browser = await chromium.launch({ headless: true });
+
+  // --- FIRST RUN: login and save state ---
+  const loginContext = await browser.newContext();
+  const loginPage    = await loginContext.newPage();
+  await loginPage.goto('https://example.com/login');
+  // await loginPage.fill('#email', 'user@test.com');
+  // await loginPage.fill('#pass',  'password123');
+  // await loginPage.click('#submit');
+
+  // save entire session: cookies + localStorage + sessionStorage
+  await loginContext.storageState({ path: 'session.json' });
+  await loginContext.close();
+
+  // --- EVERY SUBSEQUENT TEST: load saved state, skip login ---
+  const fastContext = await browser.newContext({
+    storageState: 'session.json'   // inject saved session
+  });
+  const fastPage = await fastContext.newPage();
+  await fastPage.goto('https://example.com/dashboard');
+  // already logged in — no login steps needed!
+
+  await browser.close();
+});
+
+
+// ============================================================
+// TEST 9 — newContext() options
+// BrowserContext accepts many options for custom sessions
+// ============================================================
+
+test('newContext with all common options', async () => {
+
+  const browser = await chromium.launch({ headless: true });
+
+  const context = await browser.newContext({
+    viewport:        { width: 1280, height: 720 },
+    userAgent:       'Mozilla/5.0 Custom TestBot',
+    locale:          'en-IN',
+    timezoneId:      'Asia/Kolkata',
+    permissions:     ['geolocation'],
+    // storageState: 'session.json',     // load saved login
+    // recordVideo:  { dir: './videos/' }
+  });
+
+  const page = await context.newPage();
+  await page.goto('https://example.com');
+  console.log(await page.title());
+
+  await browser.close();
+});
+
+
+// ============================================================
+// TEST 10 — FULL INTERNAL CLASS CHAIN (simplified simulation)
+// Shows exactly what happens inside Playwright
+// No require() — pure JS to see the pattern clearly
+// ============================================================
+
+test('pure JS simulation of full internal chain', async () => {
+
+  // --- these 4 classes simulate what Playwright does internally ---
+
+  class BrowserType {
+    constructor(name) {
+      this.name = name;                     // 'chromium'
+    }
+    launch() {
+      return new Browser(this);             // creates Browser, passes itself
+    }
+  }
+
+  class Browser {
+    constructor(browserType) {
+      this.browserType = browserType;       // back-ref to BrowserType
+      this._contexts   = [];
+    }
+    newContext() {
+      const ctx = new BrowserContext(this); // creates context, passes itself
+      this._contexts.push(ctx);             // tracks it
+      return ctx;
+    }
+    contexts()    { return this._contexts; }
+    isConnected() { return true; }
+  }
+
+  class BrowserContext {
+    constructor(browser) {
+      this._browser = browser;              // back-ref to Browser
+      this._pages   = [];
+    }
+    newPage() {
+      const p = new Page(this);             // creates page, passes itself
+      this._pages.push(p);                  // tracks it
+      return p;
+    }
+    browser() { return this._browser; }
+    pages()   { return this._pages; }
+  }
+
+  class Page {
+    constructor(context) {
+      this._context = context;              // back-ref to BrowserContext
+    }
+    context() { return this._context; }
+    goto(url) { console.log(`navigating to ${url}`); }
+  }
+
+  // --- Playwright exports pre-built instances ---
+  const chromiumSim = new BrowserType('chromium');
+
+  // --- your code ---
+  const browser  = chromiumSim.launch();   // no await needed in simulation
+  const context  = browser.newContext();
+  const page     = context.newPage();
+  page.goto('https://example.com');
+
+  // VERIFY entire chain
+  console.log(browser.isConnected());              // true
+  console.log(browser.contexts().length);          // 1
+  console.log(context.browser() === browser);      // true ✅
+  console.log(page.context() === context);         // true ✅
+  console.log(page.context().browser() === browser); // true ✅
+
+  // walk the full back-reference chain from page:
+  console.log(page.context().browser().browserType.name);  // 'chromium' ✅
+});

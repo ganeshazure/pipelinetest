@@ -1,3 +1,0 @@
-2026-03-27 10:59:22 [INFO] : Opening register page
-2026-03-27 10:59:26 [INFO] : User enters details
-2026-03-27 10:59:27 [INFO] : Test completed

@@ -38,7 +38,7 @@ jobs:
 
       # ── STEP 4: Install Playwright browsers
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps
+        run: npx playwright install chromium --with-deps
 
       # ── STEP 5: Run tests
       - name: Run Playwright tests

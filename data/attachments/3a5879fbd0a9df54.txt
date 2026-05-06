@@ -1,0 +1,11 @@
+2026-03-27 10:59:22 [INFO] : Opening login page
+2026-03-27 10:59:31 [ERROR] : Login test failed: expect(page).toHaveTitle(expected) failed
+
+Expected pattern: /My Accoun/
+Received string:  "Account Login"
+Timeout: 5000ms
+
+Call log:
+  - Expect "toHaveTitle" with timeout 5000ms
+    9 × unexpected value "Account Login"
+

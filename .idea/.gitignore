@@ -3,3 +3,8 @@
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+# Playwright generated folders — never commit these
+playwright-report/
+test-results/
+allure-results/
+allure-report/

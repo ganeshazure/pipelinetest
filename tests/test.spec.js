@@ -15,9 +15,9 @@ await page.selectOption('#oldSelectMenu', { label: 'Green' });
 // Select by index
 //await page.selectOption('#oldSelectMenu', { index: 2 });
 
-await page.goto('https://demoqa.com/select-menu');
-
-// Multi-select
-await page.selectOption('#cars', ['volvo', 'saab']);
-await page.pause();
+//await page.goto('https://demoqa.com/select-menu');
+//
+//// Multi-select
+//await page.selectOption('#cars', ['volvo', 'saab']);
+//await page.pause();
 });

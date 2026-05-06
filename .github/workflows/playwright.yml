@@ -1,0 +1,74 @@
+# ============================================================
+# .github/workflows/playwright.yml
+#
+# GitHub Actions CI/CD pipeline for Playwright framework
+# Triggers: every push and pull request to master branch
+# ============================================================
+
+name: Playwright Tests - CI Pipeline
+
+on:
+  # ── runs on every push to master
+  push:
+    branches: [master, main]
+
+  # ── runs on every pull request targeting master
+#  pull_request:
+#    branches: [master, main]
+
+  # ── allows manual trigger from GitHub Actions UI
+  workflow_dispatch:
+
+jobs:
+  playwright-tests:
+    name: Run Playwright Tests
+    runs-on: ubuntu-latest      # GitHub-hosted Linux runner (free)
+    timeout-minutes: 60         # kill job if it hangs beyond 60 min
+
+    steps:
+
+      # ── STEP 1: checkout your code from the repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── STEP 2: install Node.js (match your local version)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'           # cache node_modules between runs
+
+      # ── STEP 3: install all npm dependencies
+      #    uses package-lock.json for exact versions (faster + reliable)
+      - name: Install dependencies
+        run: npm ci
+
+      # ── STEP 4: install Playwright browsers + system dependencies
+      #    --with-deps installs OS-level libs (fonts, codecs etc.)
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      # ── STEP 5: run all Playwright tests
+      - name: Run Playwright tests
+        run: npx playwright test
+        env:
+          CI: true               # tells Playwright it is running in CI
+
+      # ── STEP 6: upload HTML report as downloadable artifact
+      #    if: always() → uploads even if tests fail (so you can debug)
+      - name: Upload Playwright HTML Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-html-report
+          path: playwright-report/
+          retention-days: 30     # keep report for 30 days
+
+      # ── STEP 7: upload screenshots of failed tests
+      - name: Upload failure screenshots
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-screenshots
+          path: test-results/
+          retention-days: 30

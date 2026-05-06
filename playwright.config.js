@@ -13,6 +13,7 @@ module.exports = defineConfig({
  retries: 0, // global default OFF
 
   use: {
+  headless: true,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'on-first-retry',

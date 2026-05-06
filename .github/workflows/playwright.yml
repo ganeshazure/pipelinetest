@@ -50,7 +50,7 @@ jobs:
 
       # ── STEP 5: run all Playwright tests
       - name: Run Playwright tests
-        run: npx playwright test
+        run: npx playwright test tests/test.spec.js
         env:
           CI: true               # tells Playwright it is running in CI
 

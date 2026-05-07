@@ -46,7 +46,7 @@ jobs:
 
       # ── STEP 6: Run tests (ONLY what you specify)
       - name: Run Playwright tests
-        run: npx playwright test tests/reg.spec.js
+        run: npx playwright test
         env:
           CI: true
 

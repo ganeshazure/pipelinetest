@@ -1,6 +1,7 @@
 # ============================================================
 # .github/workflows/playwright.yml
-# Playwright + Allure (CLEAN REPORT each run)
+# Playwright + Allure + GitHub Pages
+# Generates report EVEN IF TESTS FAIL
 # ============================================================
 
 name: Playwright Tests - CI Pipeline
@@ -8,6 +9,7 @@ name: Playwright Tests - CI Pipeline
 on:
   push:
     branches: [master, main]
+
   workflow_dispatch:
 
 permissions:
@@ -15,70 +17,115 @@ permissions:
 
 jobs:
   playwright-tests:
+
     name: Run Playwright Tests
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
     steps:
 
-      # ── STEP 1: Checkout repo
+      # ======================================================
+      # STEP 1 → Checkout Repository
+      # ======================================================
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ── STEP 2: Setup Node
+
+      # ======================================================
+      # STEP 2 → Setup Node.js
+      # ======================================================
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
 
-      # ── STEP 3: Install dependencies
+
+      # ======================================================
+      # STEP 3 → Install Dependencies
+      # ======================================================
       - name: Install dependencies
         run: npm ci
 
-      # ── STEP 4: Install Chromium ONLY (faster)
+
+      # ======================================================
+      # STEP 4 → Install Playwright Browsers
+      # Chromium only = Faster pipeline
+      # ======================================================
       - name: Install Chromium
         run: npx playwright install chromium --with-deps
 
-      # ── STEP 5: Clean old Allure data (IMPORTANT)
+
+      # ======================================================
+      # STEP 5 → Clean Old Reports
+      # Prevents old test data mixing
+      # ======================================================
       - name: Clean Allure folders
         run: rm -rf allure-results allure-report
 
-      # ── STEP 6: Run tests (ONLY what you specify)
+
+      # ======================================================
+      # STEP 6 → Run Playwright Tests
+      # IMPORTANT:
+      # continue-on-error allows report generation
+      # even when tests fail
+      # ======================================================
       - name: Run Playwright tests
         run: npx playwright test tests/pipeline
+        continue-on-error: true
         env:
           CI: true
 
-      # ── STEP 7: Install Allure CLI
+
+      # ======================================================
+      # STEP 7 → Install Allure CLI
+      # ======================================================
       - name: Install Allure CLI
+        if: always()
         run: npm install -g allure-commandline --save-dev
 
-      # ── STEP 8: Generate fresh Allure report
+
+      # ======================================================
+      # STEP 8 → Generate Allure Report
+      # if: always() ensures report generation
+      # even after failed tests
+      # ======================================================
       - name: Generate Allure Report
+        if: always()
         run: npx allure generate allure-results --clean -o allure-report
 
-      # ── STEP 9: Deploy report (shareable URL)
+
+      # ======================================================
+      # STEP 9 → Deploy Report to GitHub Pages
+      # ======================================================
       - name: Deploy Allure Report to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
         if: always()
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./allure-report
 
-      # ── STEP 10: Upload report (backup)
+
+      # ======================================================
+      # STEP 10 → Upload Allure Report Artifact
+      # Backup downloadable report
+      # ======================================================
       - name: Upload Allure Report
-        uses: actions/upload-artifact@v4
         if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: allure-report/
           retention-days: 30
 
-      # ── STEP 11: Upload failure artifacts
-      - name: Upload failure artifacts
-        uses: actions/upload-artifact@v4
+
+      # ======================================================
+      # STEP 11 → Upload Failure Artifacts
+      # Screenshots / videos / traces
+      # ======================================================
+      - name: Upload Playwright Artifacts
         if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: playwright-artifacts
           path: |

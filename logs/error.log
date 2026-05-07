@@ -108,3 +108,23 @@ Call log:
 [2m  - Expect "toHaveTitle" with timeout 5000ms[22m
 [2m    9 × unexpected value "Account Login"[22m
 
+2026-05-07 10:45:39 [ERROR] : Login test failed: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveTitle[2m([22m[32mexpected[39m[2m)[22m failed
+
+Expected pattern: [32m/My Accoun/[39m
+Received string:  [31m"Account Login"[39m
+Timeout: 5000ms
+
+Call log:
+[2m  - Expect "toHaveTitle" with timeout 5000ms[22m
+[2m    9 × unexpected value "Account Login"[22m
+
+2026-05-07 10:45:48 [ERROR] : Login test failed: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveTitle[2m([22m[32mexpected[39m[2m)[22m failed
+
+Expected pattern: [32m/My Accoun/[39m
+Received string:  [31m"Account Login"[39m
+Timeout: 5000ms
+
+Call log:
+[2m  - Expect "toHaveTitle" with timeout 5000ms[22m
+[2m    9 × unexpected value "Account Login"[22m
+

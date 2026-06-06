@@ -21,3 +21,4 @@ await page.selectOption('#oldSelectMenu', { label: 'Green' });
 //await page.selectOption('#cars', ['volvo', 'saab']);
 //await page.pause();
 });
+

@@ -16,6 +16,7 @@ const testData = {
 // 2️⃣ LOCATOR MAP (MAP)
 // ====================================
 
+
 const locators = new Map([
   ['email', '#email'],
   ['password', '#password'],

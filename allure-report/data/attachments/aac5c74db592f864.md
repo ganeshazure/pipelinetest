@@ -1,0 +1,195 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic:
+    - complementary [ref=e4]:
+      - navigation "Sidepanel" [ref=e5]:
+        - generic [ref=e6]:
+          - link "client brand banner" [ref=e7] [cursor=pointer]:
+            - /url: https://www.orangehrm.com/
+            - img "client brand banner" [ref=e9]
+          - text: 
+        - generic [ref=e10]:
+          - generic [ref=e11]:
+            - generic [ref=e12]:
+              - textbox "Search" [ref=e15]
+              - button "" [ref=e16] [cursor=pointer]:
+                - generic [ref=e17]: 
+            - separator [ref=e18]
+          - list [ref=e19]:
+            - listitem [ref=e20]:
+              - link "Admin" [ref=e21] [cursor=pointer]:
+                - /url: /web/index.php/admin/viewAdminModule
+                - generic [ref=e24]: Admin
+            - listitem [ref=e25]:
+              - link "PIM" [ref=e26] [cursor=pointer]:
+                - /url: /web/index.php/pim/viewPimModule
+                - generic [ref=e40]: PIM
+            - listitem [ref=e41]:
+              - link "Leave" [ref=e42] [cursor=pointer]:
+                - /url: /web/index.php/leave/viewLeaveModule
+                - generic [ref=e45]: Leave
+            - listitem [ref=e46]:
+              - link "Time" [ref=e47] [cursor=pointer]:
+                - /url: /web/index.php/time/viewTimeModule
+                - generic [ref=e53]: Time
+            - listitem [ref=e54]:
+              - link "Recruitment" [ref=e55] [cursor=pointer]:
+                - /url: /web/index.php/recruitment/viewRecruitmentModule
+                - generic [ref=e61]: Recruitment
+            - listitem [ref=e62]:
+              - link "My Info" [ref=e63] [cursor=pointer]:
+                - /url: /web/index.php/pim/viewMyDetails
+                - generic [ref=e69]: My Info
+            - listitem [ref=e70]:
+              - link "Performance" [ref=e71] [cursor=pointer]:
+                - /url: /web/index.php/performance/viewPerformanceModule
+                - generic [ref=e79]: Performance
+            - listitem [ref=e80]:
+              - link "Dashboard" [ref=e81] [cursor=pointer]:
+                - /url: /web/index.php/dashboard/index
+                - generic [ref=e84]: Dashboard
+            - listitem [ref=e85]:
+              - link "Directory" [ref=e86] [cursor=pointer]:
+                - /url: /web/index.php/directory/viewDirectory
+                - generic [ref=e89]: Directory
+            - listitem [ref=e90]:
+              - link "Maintenance" [ref=e91] [cursor=pointer]:
+                - /url: /web/index.php/maintenance/viewMaintenanceModule
+                - generic [ref=e95]: Maintenance
+            - listitem [ref=e96]:
+              - link "Claim" [ref=e97] [cursor=pointer]:
+                - /url: /web/index.php/claim/viewClaimModule
+                - img [ref=e100]
+                - generic [ref=e104]: Claim
+            - listitem [ref=e105]:
+              - link "Buzz" [ref=e106] [cursor=pointer]:
+                - /url: /web/index.php/buzz/viewBuzz
+                - generic [ref=e109]: Buzz
+    - banner [ref=e110]:
+      - generic [ref=e111]:
+        - generic [ref=e112]:
+          - text: 
+          - heading "Leave" [level=6] [ref=e114]
+        - link "Upgrade" [ref=e116]:
+          - /url: https://orangehrm.com/open-source/upgrade-to-advanced
+          - button "Upgrade" [ref=e117] [cursor=pointer]: Upgrade
+        - list [ref=e123]:
+          - listitem [ref=e124]:
+            - generic [ref=e125] [cursor=pointer]:
+              - img "profile picture" [ref=e126]
+              - paragraph [ref=e127]: mandaa Johnson
+              - generic [ref=e128]: 
+      - navigation "Topbar Menu" [ref=e130]:
+        - list [ref=e131]:
+          - listitem [ref=e132] [cursor=pointer]:
+            - link "Apply" [ref=e133]:
+              - /url: "#"
+          - listitem [ref=e134] [cursor=pointer]:
+            - link "My Leave" [ref=e135]:
+              - /url: "#"
+          - listitem [ref=e136] [cursor=pointer]:
+            - generic [ref=e137]:
+              - text: Entitlements
+              - generic [ref=e138]: 
+          - listitem [ref=e139] [cursor=pointer]:
+            - generic [ref=e140]:
+              - text: Reports
+              - generic [ref=e141]: 
+          - listitem [ref=e142] [cursor=pointer]:
+            - generic [ref=e143]:
+              - text: Configure
+              - generic [ref=e144]: 
+          - listitem [ref=e145] [cursor=pointer]:
+            - link "Leave List" [ref=e146]:
+              - /url: "#"
+          - listitem [ref=e147] [cursor=pointer]:
+            - link "Assign Leave" [ref=e148]:
+              - /url: "#"
+          - button "" [ref=e150] [cursor=pointer]:
+            - generic [ref=e151]: 
+  - generic [ref=e152]:
+    - generic [ref=e154]:
+      - generic [ref=e155]:
+        - heading "Overlapping Leave Request(s) Found" [level=6] [ref=e157]
+        - generic [ref=e158]:
+          - separator [ref=e159]
+          - generic [ref=e161]: (2) Records Found
+        - table [ref=e163]:
+          - rowgroup [ref=e164]:
+            - row "Date No. of Hours Leave Type Status Comments" [ref=e165]:
+              - columnheader "Date" [ref=e166]
+              - columnheader "No. of Hours" [ref=e167]
+              - columnheader "Leave Type" [ref=e168]
+              - columnheader "Status" [ref=e169]
+              - columnheader "Comments" [ref=e170]
+          - rowgroup [ref=e171]:
+            - row "2026-20-08 8.00 CAN - Matternity Pending Approval Family Function Leave" [ref=e173]:
+              - cell "2026-20-08" [ref=e174]:
+                - generic [ref=e175]: 2026-20-08
+              - cell "8.00" [ref=e176]:
+                - generic [ref=e177]: "8.00"
+              - cell "CAN - Matternity" [ref=e178]:
+                - generic [ref=e179]: CAN - Matternity
+              - cell "Pending Approval" [ref=e180]:
+                - generic [ref=e181]: Pending Approval
+              - cell "Family Function Leave" [ref=e182]:
+                - generic [ref=e183]: Family Function Leave
+            - row "2026-21-08 8.00 CAN - Matternity Pending Approval Family Function Leave" [ref=e185]:
+              - cell "2026-21-08" [ref=e186]:
+                - generic [ref=e187]: 2026-21-08
+              - cell "8.00" [ref=e188]:
+                - generic [ref=e189]: "8.00"
+              - cell "CAN - Matternity" [ref=e190]:
+                - generic [ref=e191]: CAN - Matternity
+              - cell "Pending Approval" [ref=e192]:
+                - generic [ref=e193]: Pending Approval
+              - cell "Family Function Leave" [ref=e194]:
+                - generic [ref=e195]: Family Function Leave
+      - generic [ref=e197]:
+        - heading "Apply Leave" [level=6] [ref=e198]
+        - separator [ref=e199]
+        - generic [ref=e200]:
+          - generic [ref=e202]:
+            - generic [ref=e204]:
+              - generic [ref=e206]: Leave Type*
+              - generic [ref=e209] [cursor=pointer]:
+                - generic [ref=e210]: CAN - Matternity
+                - generic [ref=e212]: 
+            - generic [ref=e214]:
+              - generic [ref=e215]:
+                - generic [ref=e216]: Leave Balance
+                - generic [ref=e217] [cursor=pointer]: 
+              - paragraph [ref=e219]: 52.00 Day(s)
+          - generic [ref=e221]:
+            - generic [ref=e223]:
+              - generic [ref=e225]: From Date*
+              - generic [ref=e228]:
+                - textbox "yyyy-dd-mm" [ref=e229]: 2026-20-08
+                - generic [ref=e230] [cursor=pointer]: 
+            - generic [ref=e232]:
+              - generic [ref=e234]: To Date*
+              - generic [ref=e237]:
+                - textbox "yyyy-dd-mm" [ref=e238]: 2026-21-08
+                - generic [ref=e239] [cursor=pointer]: 
+          - generic [ref=e243]:
+            - generic [ref=e245]: Partial Days
+            - generic [ref=e248] [cursor=pointer]:
+              - generic [ref=e249]: "-- Select --"
+              - generic [ref=e251]: 
+          - generic [ref=e255]:
+            - generic [ref=e257]: Comments
+            - textbox [ref=e259]: Family Function Leave
+          - separator [ref=e260]
+          - generic [ref=e261]:
+            - paragraph [ref=e262]: "* Required"
+            - button "Apply" [active] [ref=e263] [cursor=pointer]
+    - generic [ref=e264]:
+      - paragraph [ref=e265]: OrangeHRM OS 5.8
+      - paragraph [ref=e266]:
+        - text: © 2005 - 2026
+        - link "OrangeHRM, Inc" [ref=e267] [cursor=pointer]:
+          - /url: http://www.orangehrm.com
+        - text: . All rights reserved.
+```

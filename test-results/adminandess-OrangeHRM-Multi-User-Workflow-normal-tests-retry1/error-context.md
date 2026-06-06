@@ -1,0 +1,382 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic:
+    - complementary [ref=e4]:
+      - navigation "Sidepanel" [ref=e5]:
+        - generic [ref=e6]:
+          - link "client brand banner" [ref=e7] [cursor=pointer]:
+            - /url: https://www.orangehrm.com/
+            - img "client brand banner" [ref=e9]
+          - text: 
+        - generic [ref=e10]:
+          - generic [ref=e11]:
+            - generic [ref=e12]:
+              - textbox "Search" [ref=e15]
+              - button "" [ref=e16] [cursor=pointer]:
+                - generic [ref=e17]: 
+            - separator [ref=e18]
+          - list [ref=e19]:
+            - listitem [ref=e20]:
+              - link "Admin" [ref=e21] [cursor=pointer]:
+                - /url: /web/index.php/admin/viewAdminModule
+                - generic [ref=e24]: Admin
+            - listitem [ref=e25]:
+              - link "PIM" [ref=e26] [cursor=pointer]:
+                - /url: /web/index.php/pim/viewPimModule
+                - generic [ref=e40]: PIM
+            - listitem [ref=e41]:
+              - link "Leave" [ref=e42] [cursor=pointer]:
+                - /url: /web/index.php/leave/viewLeaveModule
+                - generic [ref=e45]: Leave
+            - listitem [ref=e46]:
+              - link "Time" [ref=e47] [cursor=pointer]:
+                - /url: /web/index.php/time/viewTimeModule
+                - generic [ref=e53]: Time
+            - listitem [ref=e54]:
+              - link "Recruitment" [ref=e55] [cursor=pointer]:
+                - /url: /web/index.php/recruitment/viewRecruitmentModule
+                - generic [ref=e61]: Recruitment
+            - listitem [ref=e62]:
+              - link "My Info" [ref=e63] [cursor=pointer]:
+                - /url: /web/index.php/pim/viewMyDetails
+                - generic [ref=e69]: My Info
+            - listitem [ref=e70]:
+              - link "Performance" [ref=e71] [cursor=pointer]:
+                - /url: /web/index.php/performance/viewPerformanceModule
+                - generic [ref=e79]: Performance
+            - listitem [ref=e80]:
+              - link "Dashboard" [ref=e81] [cursor=pointer]:
+                - /url: /web/index.php/dashboard/index
+                - generic [ref=e84]: Dashboard
+            - listitem [ref=e85]:
+              - link "Directory" [ref=e86] [cursor=pointer]:
+                - /url: /web/index.php/directory/viewDirectory
+                - generic [ref=e89]: Directory
+            - listitem [ref=e90]:
+              - link "Maintenance" [ref=e91] [cursor=pointer]:
+                - /url: /web/index.php/maintenance/viewMaintenanceModule
+                - generic [ref=e95]: Maintenance
+            - listitem [ref=e96]:
+              - link "Claim" [ref=e97] [cursor=pointer]:
+                - /url: /web/index.php/claim/viewClaimModule
+                - img [ref=e100]
+                - generic [ref=e104]: Claim
+            - listitem [ref=e105]:
+              - link "Buzz" [ref=e106] [cursor=pointer]:
+                - /url: /web/index.php/buzz/viewBuzz
+                - generic [ref=e109]: Buzz
+    - banner [ref=e110]:
+      - generic [ref=e111]:
+        - generic [ref=e112]:
+          - text: 
+          - heading "Leave" [level=6] [ref=e114]
+        - link "Upgrade" [ref=e116]:
+          - /url: https://orangehrm.com/open-source/upgrade-to-advanced
+          - button "Upgrade" [ref=e117] [cursor=pointer]: Upgrade
+        - list [ref=e123]:
+          - listitem [ref=e124]:
+            - generic [ref=e125] [cursor=pointer]:
+              - img "profile picture" [ref=e126]
+              - paragraph [ref=e127]: mandaa Johnson
+              - generic [ref=e128]: 
+      - navigation "Topbar Menu" [ref=e130]:
+        - list [ref=e131]:
+          - listitem [ref=e132] [cursor=pointer]:
+            - link "Apply" [ref=e133]:
+              - /url: "#"
+          - listitem [ref=e134] [cursor=pointer]:
+            - link "My Leave" [ref=e135]:
+              - /url: "#"
+          - listitem [ref=e136] [cursor=pointer]:
+            - generic [ref=e137]:
+              - text: Entitlements
+              - generic [ref=e138]: 
+          - listitem [ref=e139] [cursor=pointer]:
+            - generic [ref=e140]:
+              - text: Reports
+              - generic [ref=e141]: 
+          - listitem [ref=e142] [cursor=pointer]:
+            - generic [ref=e143]:
+              - text: Configure
+              - generic [ref=e144]: 
+          - listitem [ref=e145] [cursor=pointer]:
+            - link "Leave List" [ref=e146]:
+              - /url: "#"
+          - listitem [ref=e147] [cursor=pointer]:
+            - link "Assign Leave" [ref=e148]:
+              - /url: "#"
+          - button "" [ref=e150] [cursor=pointer]:
+            - generic [ref=e151]: 
+  - generic [ref=e152]:
+    - generic [ref=e154]:
+      - generic [ref=e155]:
+        - generic [ref=e156]:
+          - heading "My Leave List" [level=5] [ref=e158]
+          - button "" [ref=e161] [cursor=pointer]:
+            - generic [ref=e162]: 
+        - separator [ref=e163]
+        - generic [ref=e165]:
+          - generic [ref=e167]:
+            - generic [ref=e169]:
+              - generic [ref=e171]: From Date
+              - generic [ref=e174]:
+                - textbox "yyyy-dd-mm" [ref=e175]: 2026-01-01
+                - generic [ref=e176] [cursor=pointer]: 
+            - generic [ref=e178]:
+              - generic [ref=e180]: To Date
+              - generic [ref=e183]:
+                - textbox "yyyy-dd-mm" [ref=e184]: 2026-31-12
+                - generic [ref=e185] [cursor=pointer]: 
+            - generic [ref=e187]:
+              - generic [ref=e189]: Show Leave with Status*
+              - generic [ref=e191]:
+                - generic [ref=e192] [cursor=pointer]:
+                  - generic [ref=e193]: Select
+                  - generic [ref=e195]: 
+                - generic [ref=e196]:
+                  - generic [ref=e197]:
+                    - text: Rejected
+                    - generic [ref=e198] [cursor=pointer]: 
+                  - generic [ref=e199]:
+                    - text: Cancelled
+                    - generic [ref=e200] [cursor=pointer]: 
+                  - generic [ref=e201]:
+                    - text: Pending Approval
+                    - generic [ref=e202] [cursor=pointer]: 
+                  - generic [ref=e203]:
+                    - text: Scheduled
+                    - generic [ref=e204] [cursor=pointer]: 
+                  - generic [ref=e205]:
+                    - text: Taken
+                    - generic [ref=e206] [cursor=pointer]: 
+            - generic [ref=e208]:
+              - generic [ref=e210]: Leave Type
+              - generic [ref=e213] [cursor=pointer]:
+                - generic [ref=e214]: "-- Select --"
+                - generic [ref=e216]: 
+          - separator [ref=e217]
+          - generic [ref=e218]:
+            - paragraph [ref=e219]: "* Required"
+            - button "Reset" [ref=e220] [cursor=pointer]
+            - button "Search" [ref=e221] [cursor=pointer]
+      - generic [ref=e222]:
+        - generic [ref=e224]: (8) Records Found
+        - table [ref=e226]:
+          - rowgroup [ref=e227]:
+            - row " Date Employee Name Leave Type Leave Balance (Days) Number of Days Status Comments Actions" [ref=e228]:
+              - columnheader "" [ref=e229]:
+                - generic [ref=e231] [cursor=pointer]:
+                  - checkbox "" [ref=e232]
+                  - generic [ref=e234]: 
+              - columnheader "Date" [ref=e235]
+              - columnheader "Employee Name" [ref=e236]
+              - columnheader "Leave Type" [ref=e237]
+              - columnheader "Leave Balance (Days)" [ref=e238]
+              - columnheader "Number of Days" [ref=e239]
+              - columnheader "Status" [ref=e240]
+              - columnheader "Comments" [ref=e241]
+              - columnheader "Actions" [ref=e242]
+          - rowgroup [ref=e243]:
+            - row " 2026-20-08 to 2026-21-08 mandaa akhill Johnson CAN - Matternity 52.00 2.00 Pending Approval (2.00) Family Function Leave Cancel " [ref=e245]:
+              - cell "" [ref=e246]:
+                - generic [ref=e249] [cursor=pointer]:
+                  - checkbox "" [ref=e250]
+                  - generic [ref=e252]: 
+              - cell "2026-20-08 to 2026-21-08" [ref=e253]:
+                - generic [ref=e254]: 2026-20-08 to 2026-21-08
+              - cell "mandaa akhill Johnson" [ref=e255]:
+                - generic [ref=e256]: mandaa akhill Johnson
+              - cell "CAN - Matternity" [ref=e257]:
+                - generic [ref=e258]: CAN - Matternity
+              - cell "52.00" [ref=e259]:
+                - generic [ref=e260]: "52.00"
+              - cell "2.00" [ref=e261]:
+                - generic [ref=e262]: "2.00"
+              - cell "Pending Approval (2.00)" [ref=e263]:
+                - generic [ref=e264]: Pending Approval (2.00)
+              - cell "Family Function Leave" [ref=e265]:
+                - generic [ref=e266]: Family Function Leave
+              - cell "Cancel " [ref=e267]:
+                - generic [ref=e268]:
+                  - button "Cancel" [ref=e269] [cursor=pointer]
+                  - listitem [ref=e270]:
+                    - button "" [ref=e271] [cursor=pointer]:
+                      - generic [ref=e272]: 
+            - row " 2026-18-08 to 2026-19-08 mandaa akhill Johnson CAN - Matternity 52.00 2.00 Pending Approval (2.00) Vacation and personal time off request. Cancel " [ref=e274]:
+              - cell "" [ref=e275]:
+                - generic [ref=e278] [cursor=pointer]:
+                  - checkbox "" [ref=e279]
+                  - generic [ref=e281]: 
+              - cell "2026-18-08 to 2026-19-08" [ref=e282]:
+                - generic [ref=e283]: 2026-18-08 to 2026-19-08
+              - cell "mandaa akhill Johnson" [ref=e284]:
+                - generic [ref=e285]: mandaa akhill Johnson
+              - cell "CAN - Matternity" [ref=e286]:
+                - generic [ref=e287]: CAN - Matternity
+              - cell "52.00" [ref=e288]:
+                - generic [ref=e289]: "52.00"
+              - cell "2.00" [ref=e290]:
+                - generic [ref=e291]: "2.00"
+              - cell "Pending Approval (2.00)" [ref=e292]:
+                - generic [ref=e293]: Pending Approval (2.00)
+              - cell "Vacation and personal time off request." [ref=e294]:
+                - generic [ref=e295]: Vacation and personal time off request.
+              - cell "Cancel " [ref=e296]:
+                - generic [ref=e297]:
+                  - button "Cancel" [ref=e298] [cursor=pointer]
+                  - listitem [ref=e299]:
+                    - button "" [ref=e300] [cursor=pointer]:
+                      - generic [ref=e301]: 
+            - row " 2026-09-08 to 2026-09-09 mandaa akhill Johnson CAN - Matternity 52.00 23.00 Cancelled (23.00) Vacation and personal time off request. " [ref=e303]:
+              - cell "" [ref=e304]:
+                - generic [ref=e307] [cursor=pointer]:
+                  - checkbox "" [ref=e308]
+                  - generic [ref=e310]: 
+              - cell "2026-09-08 to 2026-09-09" [ref=e311]:
+                - generic [ref=e312]: 2026-09-08 to 2026-09-09
+              - cell "mandaa akhill Johnson" [ref=e313]:
+                - generic [ref=e314]: mandaa akhill Johnson
+              - cell "CAN - Matternity" [ref=e315]:
+                - generic [ref=e316]: CAN - Matternity
+              - cell "52.00" [ref=e317]:
+                - generic [ref=e318]: "52.00"
+              - cell "23.00" [ref=e319]:
+                - generic [ref=e320]: "23.00"
+              - cell "Cancelled (23.00)" [ref=e321]:
+                - generic [ref=e322]: Cancelled (23.00)
+              - cell "Vacation and personal time off request." [ref=e323]:
+                - generic [ref=e324]: Vacation and personal time off request.
+              - cell "" [ref=e325]:
+                - listitem [ref=e327]:
+                  - button "" [ref=e328] [cursor=pointer]:
+                    - generic [ref=e329]: 
+            - row " 2026-04-06 mandaa akhill Johnson CAN - Matternity 52.00 1.00 Cancelled (1.00) " [ref=e331]:
+              - cell "" [ref=e332]:
+                - generic [ref=e335] [cursor=pointer]:
+                  - checkbox "" [ref=e336]
+                  - generic [ref=e338]: 
+              - cell "2026-04-06" [ref=e339]:
+                - generic [ref=e340]: 2026-04-06
+              - cell "mandaa akhill Johnson" [ref=e341]:
+                - generic [ref=e342]: mandaa akhill Johnson
+              - cell "CAN - Matternity" [ref=e343]:
+                - generic [ref=e344]: CAN - Matternity
+              - cell "52.00" [ref=e345]:
+                - generic [ref=e346]: "52.00"
+              - cell "1.00" [ref=e347]:
+                - generic [ref=e348]: "1.00"
+              - cell "Cancelled (1.00)" [ref=e349]:
+                - generic [ref=e350]: Cancelled (1.00)
+              - cell [ref=e351]
+              - cell "" [ref=e352]:
+                - listitem [ref=e354]:
+                  - button "" [ref=e355] [cursor=pointer]:
+                    - generic [ref=e356]: 
+            - row " 2026-04-06 mandaa akhill Johnson CAN - Matternity 52.00 1.00 Pending Approval (1.00) no comment Cancel " [ref=e358]:
+              - cell "" [ref=e359]:
+                - generic [ref=e362] [cursor=pointer]:
+                  - checkbox "" [ref=e363]
+                  - generic [ref=e365]: 
+              - cell "2026-04-06" [ref=e366]:
+                - generic [ref=e367]: 2026-04-06
+              - cell "mandaa akhill Johnson" [ref=e368]:
+                - generic [ref=e369]: mandaa akhill Johnson
+              - cell "CAN - Matternity" [ref=e370]:
+                - generic [ref=e371]: CAN - Matternity
+              - cell "52.00" [ref=e372]:
+                - generic [ref=e373]: "52.00"
+              - cell "1.00" [ref=e374]:
+                - generic [ref=e375]: "1.00"
+              - cell "Pending Approval (1.00)" [ref=e376]:
+                - generic [ref=e377]: Pending Approval (1.00)
+              - cell "no comment" [ref=e378]:
+                - generic [ref=e379]: no comment
+              - cell "Cancel " [ref=e380]:
+                - generic [ref=e381]:
+                  - button "Cancel" [ref=e382] [cursor=pointer]
+                  - listitem [ref=e383]:
+                    - button "" [ref=e384] [cursor=pointer]:
+                      - generic [ref=e385]: 
+            - row " 2026-02-06 mandaa akhill Johnson CAN - Matternity 52.00 1.00 Pending Approval (1.00) Cancel " [ref=e387]:
+              - cell "" [ref=e388]:
+                - generic [ref=e391] [cursor=pointer]:
+                  - checkbox "" [ref=e392]
+                  - generic [ref=e394]: 
+              - cell "2026-02-06" [ref=e395]:
+                - generic [ref=e396]: 2026-02-06
+              - cell "mandaa akhill Johnson" [ref=e397]:
+                - generic [ref=e398]: mandaa akhill Johnson
+              - cell "CAN - Matternity" [ref=e399]:
+                - generic [ref=e400]: CAN - Matternity
+              - cell "52.00" [ref=e401]:
+                - generic [ref=e402]: "52.00"
+              - cell "1.00" [ref=e403]:
+                - generic [ref=e404]: "1.00"
+              - cell "Pending Approval (1.00)" [ref=e405]:
+                - generic [ref=e406]: Pending Approval (1.00)
+              - cell [ref=e407]
+              - cell "Cancel " [ref=e408]:
+                - generic [ref=e409]:
+                  - button "Cancel" [ref=e410] [cursor=pointer]
+                  - listitem [ref=e411]:
+                    - button "" [ref=e412] [cursor=pointer]:
+                      - generic [ref=e413]: 
+            - row " 2026-01-06 mandaa akhill Johnson CAN - Matternity 52.00 1.00 Pending Approval (1.00) Hello po Cancel " [ref=e415]:
+              - cell "" [ref=e416]:
+                - generic [ref=e419] [cursor=pointer]:
+                  - checkbox "" [ref=e420]
+                  - generic [ref=e422]: 
+              - cell "2026-01-06" [ref=e423]:
+                - generic [ref=e424]: 2026-01-06
+              - cell "mandaa akhill Johnson" [ref=e425]:
+                - generic [ref=e426]: mandaa akhill Johnson
+              - cell "CAN - Matternity" [ref=e427]:
+                - generic [ref=e428]: CAN - Matternity
+              - cell "52.00" [ref=e429]:
+                - generic [ref=e430]: "52.00"
+              - cell "1.00" [ref=e431]:
+                - generic [ref=e432]: "1.00"
+              - cell "Pending Approval (1.00)" [ref=e433]:
+                - generic [ref=e434]: Pending Approval (1.00)
+              - cell "Hello po" [ref=e435]:
+                - generic [ref=e436]: Hello po
+              - cell "Cancel " [ref=e437]:
+                - generic [ref=e438]:
+                  - button "Cancel" [ref=e439] [cursor=pointer]
+                  - listitem [ref=e440]:
+                    - button "" [ref=e441] [cursor=pointer]:
+                      - generic [ref=e442]: 
+            - row " 2026-06-01 mandaa akhill Johnson CAN - Matternity 52.00 1.00 Pending Approval (1.00) Cancel " [ref=e444]:
+              - cell "" [ref=e445]:
+                - generic [ref=e448] [cursor=pointer]:
+                  - checkbox "" [ref=e449]
+                  - generic [ref=e451]: 
+              - cell "2026-06-01" [ref=e452]:
+                - generic [ref=e453]: 2026-06-01
+              - cell "mandaa akhill Johnson" [ref=e454]:
+                - generic [ref=e455]: mandaa akhill Johnson
+              - cell "CAN - Matternity" [ref=e456]:
+                - generic [ref=e457]: CAN - Matternity
+              - cell "52.00" [ref=e458]:
+                - generic [ref=e459]: "52.00"
+              - cell "1.00" [ref=e460]:
+                - generic [ref=e461]: "1.00"
+              - cell "Pending Approval (1.00)" [ref=e462]:
+                - generic [ref=e463]: Pending Approval (1.00)
+              - cell [ref=e464]
+              - cell "Cancel " [ref=e465]:
+                - generic [ref=e466]:
+                  - button "Cancel" [ref=e467] [cursor=pointer]
+                  - listitem [ref=e468]:
+                    - button "" [ref=e469] [cursor=pointer]:
+                      - generic [ref=e470]: 
+    - generic [ref=e472]:
+      - paragraph [ref=e473]: OrangeHRM OS 5.8
+      - paragraph [ref=e474]:
+        - text: © 2005 - 2026
+        - link "OrangeHRM, Inc" [ref=e475] [cursor=pointer]:
+          - /url: http://www.orangehrm.com
+        - text: . All rights reserved.
+```

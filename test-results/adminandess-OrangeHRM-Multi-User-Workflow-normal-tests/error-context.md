@@ -79,7 +79,7 @@
           - listitem [ref=e124]:
             - generic [ref=e125] [cursor=pointer]:
               - img "profile picture" [ref=e126]
-              - paragraph [ref=e127]: mandaa Johnson
+              - paragraph [ref=e127]: Faqih user
               - generic [ref=e128]: 
       - navigation "Topbar Menu" [ref=e130]:
         - list [ref=e131]:
@@ -110,86 +110,15 @@
           - button "" [ref=e150] [cursor=pointer]:
             - generic [ref=e151]: 
   - generic [ref=e152]:
-    - generic [ref=e154]:
-      - generic [ref=e155]:
-        - heading "Overlapping Leave Request(s) Found" [level=6] [ref=e157]
-        - generic [ref=e158]:
-          - separator [ref=e159]
-          - generic [ref=e161]: (2) Records Found
-        - table [ref=e163]:
-          - rowgroup [ref=e164]:
-            - row "Date No. of Hours Leave Type Status Comments" [ref=e165]:
-              - columnheader "Date" [ref=e166]
-              - columnheader "No. of Hours" [ref=e167]
-              - columnheader "Leave Type" [ref=e168]
-              - columnheader "Status" [ref=e169]
-              - columnheader "Comments" [ref=e170]
-          - rowgroup [ref=e171]:
-            - row "2026-20-08 8.00 CAN - Matternity Pending Approval Family Function Leave" [ref=e173]:
-              - cell "2026-20-08" [ref=e174]:
-                - generic [ref=e175]: 2026-20-08
-              - cell "8.00" [ref=e176]:
-                - generic [ref=e177]: "8.00"
-              - cell "CAN - Matternity" [ref=e178]:
-                - generic [ref=e179]: CAN - Matternity
-              - cell "Pending Approval" [ref=e180]:
-                - generic [ref=e181]: Pending Approval
-              - cell "Family Function Leave" [ref=e182]:
-                - generic [ref=e183]: Family Function Leave
-            - row "2026-21-08 8.00 CAN - Matternity Pending Approval Family Function Leave" [ref=e185]:
-              - cell "2026-21-08" [ref=e186]:
-                - generic [ref=e187]: 2026-21-08
-              - cell "8.00" [ref=e188]:
-                - generic [ref=e189]: "8.00"
-              - cell "CAN - Matternity" [ref=e190]:
-                - generic [ref=e191]: CAN - Matternity
-              - cell "Pending Approval" [ref=e192]:
-                - generic [ref=e193]: Pending Approval
-              - cell "Family Function Leave" [ref=e194]:
-                - generic [ref=e195]: Family Function Leave
-      - generic [ref=e197]:
-        - heading "Apply Leave" [level=6] [ref=e198]
-        - separator [ref=e199]
-        - generic [ref=e200]:
-          - generic [ref=e202]:
-            - generic [ref=e204]:
-              - generic [ref=e206]: Leave Type*
-              - generic [ref=e209] [cursor=pointer]:
-                - generic [ref=e210]: CAN - Matternity
-                - generic [ref=e212]: 
-            - generic [ref=e214]:
-              - generic [ref=e215]:
-                - generic [ref=e216]: Leave Balance
-                - generic [ref=e217] [cursor=pointer]: 
-              - paragraph [ref=e219]: 52.00 Day(s)
-          - generic [ref=e221]:
-            - generic [ref=e223]:
-              - generic [ref=e225]: From Date*
-              - generic [ref=e228]:
-                - textbox "yyyy-dd-mm" [ref=e229]: 2026-20-08
-                - generic [ref=e230] [cursor=pointer]: 
-            - generic [ref=e232]:
-              - generic [ref=e234]: To Date*
-              - generic [ref=e237]:
-                - textbox "yyyy-dd-mm" [ref=e238]: 2026-21-08
-                - generic [ref=e239] [cursor=pointer]: 
-          - generic [ref=e243]:
-            - generic [ref=e245]: Partial Days
-            - generic [ref=e248] [cursor=pointer]:
-              - generic [ref=e249]: "-- Select --"
-              - generic [ref=e251]: 
-          - generic [ref=e255]:
-            - generic [ref=e257]: Comments
-            - textbox [ref=e259]: Family Function Leave
-          - separator [ref=e260]
-          - generic [ref=e261]:
-            - paragraph [ref=e262]: "* Required"
-            - button "Apply" [active] [ref=e263] [cursor=pointer]
-    - generic [ref=e264]:
-      - paragraph [ref=e265]: OrangeHRM OS 5.8
-      - paragraph [ref=e266]:
+    - generic [ref=e155]:
+      - heading "Apply Leave" [level=6] [ref=e156]
+      - separator [ref=e157]
+      - paragraph [ref=e158]: No Leave Types with Leave Balance
+    - generic [ref=e159]:
+      - paragraph [ref=e160]: OrangeHRM OS 5.8
+      - paragraph [ref=e161]:
         - text: © 2005 - 2026
-        - link "OrangeHRM, Inc" [ref=e267] [cursor=pointer]:
+        - link "OrangeHRM, Inc" [ref=e162] [cursor=pointer]:
           - /url: http://www.orangehrm.com
         - text: . All rights reserved.
 ```

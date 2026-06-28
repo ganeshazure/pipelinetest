@@ -1,5 +1,5 @@
-2026-06-12 09:22:02 [INFO] : Opening login page
-2026-06-12 09:22:09 [ERROR] : Login test failed: expect(page).toHaveTitle(expected) failed
+2026-06-28 05:53:23 [INFO] : Opening login page
+2026-06-28 05:53:30 [ERROR] : Login test failed: expect(page).toHaveTitle(expected) failed
 
 Expected pattern: /My Accoun/
 Received string:  "Account Login"

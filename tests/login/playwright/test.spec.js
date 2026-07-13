@@ -1,4 +1,4 @@
-const { test, expect, chromium, firefox, webkit } = require('@playwright/test');
+
 
 /**
  * ============================================================
@@ -58,7 +58,7 @@ const { test, expect, chromium, firefox, webkit } = require('@playwright/test');
  * 🧪 TEST 1: CHROMIUM (Google browser)
  * ============================================================
  */
-
+const { test, expect, chromium, firefox, webkit } = require('@playwright/test');
 test('Chromium flow demo', async () => {
 
   const browser = await chromium.launch({ headless: false });
